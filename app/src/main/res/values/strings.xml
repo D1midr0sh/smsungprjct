@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Олимпиады</string>
+    <string name="astro">Астрономия</string>
+    <string name="english">Английский язык</string>
+    <string name="bio">Биология</string>
+    <string name="geogr">География</string>
+    <string name="inf">Информатика</string>
+    <string name="title">ВСОШ планировщик</string>
+    <string name="mhk">Искусство(МХК)</string>
+    <string name="spanish">Испанский язык</string>
+    <string name="his">История</string>
+    <string name="ital">Итальянския язык</string>
+    <string name="chin">Китайский язык</string>
+    <string name="lit">Литература</string>
+    <string name="math">Математика</string>
+    <string name="deu">Немецкий язык</string>
+    <string name="obch">Обществознание</string>
+    <string name="loyal">Право</string>
+    <string name="rus">Русский язык</string>
+    <string name="phys">Физика</string>
+    <string name="chem">Химия</string>
+    <string name="eco">Экология</string>
+    <string name="econom">Экономика</string>
+    <string name="chose">Выбрать</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="tochoose">Выбери </string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+</resources>
