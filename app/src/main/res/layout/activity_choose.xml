@@ -24,23 +24,166 @@
                 android:id="@+id/checkBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/astro" />
+                android:text="@string/astro"
+                android:onClick="onCheckboxClicked"/>
 
             <CheckBox
                 android:id="@+id/checkBox2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/english" />
+                android:text="@string/english"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/bio"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/geogr"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/inf"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mhk"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/spanish"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/his"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ital"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/chin"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lit"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/math"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/deu"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/obch"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/loyal"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rus"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/phys"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/chem"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/eco"
+                android:onClick="onCheckboxClicked"/>
+
+            <CheckBox
+                android:id="@+id/checkBox20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/econom"
+                android:onClick="onCheckboxClicked"/>
+
         </LinearLayout>
     </ScrollView>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="382dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="600dp"
+        android:text="Подтвердить"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="232dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="36dp"
-        android:text="TextView"
+        android:layout_width="319dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/tochoose"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

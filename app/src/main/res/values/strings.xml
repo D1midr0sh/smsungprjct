@@ -23,7 +23,7 @@
     <string name="econom">Экономика</string>
     <string name="chose">Выбрать</string>
     <string name="title_activity_settings">SettingsActivity</string>
-    <string name="tochoose">Выбери </string>
+    <string name="tochoose">Выберите предметы:</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>

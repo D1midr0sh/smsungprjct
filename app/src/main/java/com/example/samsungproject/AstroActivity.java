@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.BaseColumns;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -21,8 +24,10 @@ public class AstroActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_astro);
         TextView title = findViewById(R.id.textView2);
+        TextView part = findViewById(R.id.part);
         String message = getIntent().getStringExtra("title");
         title.setText(message);
+        
         olbutton = findViewById(R.id.olbutton);
         olbutton.setOnClickListener(this);
         srbutton = findViewById(R.id.ecr);

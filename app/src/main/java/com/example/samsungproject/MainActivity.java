@@ -1,15 +1,15 @@
 package com.example.samsungproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -24,6 +24,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Dbhelper dbhelper = new Dbhelper(getBaseContext());
+        SQLiteDatabase db = dbhelper.getWritableDatabase();
+        dbhelper.onCreate(db);
+
+        ContentValues values = new ContentValues();
+        String not = "NO";
+        values.put(DataBase.FeedEntry.COLUMN_NAME_ASTRO, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_ENGLISH, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_BIO, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_GEO, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_INF, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_MHK, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_SPAN, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_HIS, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_ITAL, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_CHIN, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_LIT, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_MATH, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_DEU, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_OBCH, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_LOY, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_RUS, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_PHY, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_CHEM, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_ECO, not);
+        values.put(DataBase.FeedEntry.COLUMN_NAME_ECON, not);
+
+        long newRowId = db.insert(DataBase.FeedEntry.TABLE_NAME, null, values);
+
+
+
         setContentView(R.layout.activity_main);
         bnv = findViewById(R.id.navmenu);
 
@@ -87,5 +118,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         i.putExtra("title", title);
         startActivity(i);
 
+    }
+
+
+    public void OnClick(MenuItem item) {
+        Intent i;
+        i = new Intent(MainActivity.this, ChooseActivity.class);
+        startActivity(i);
     }
 }

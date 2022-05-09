@@ -87,4 +87,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/part"
+        android:layout_width="258dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="444dp"
+        android:text="Вы не участвуете в данном предмете."
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
