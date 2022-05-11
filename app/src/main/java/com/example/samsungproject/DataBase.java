@@ -7,27 +7,27 @@ public final class DataBase {
     private DataBase() {}
 
     public static class FeedEntry implements BaseColumns {
-        public static final String TABLE_NAME = "entry";
-        public static final String COLUMN_NAME_ASTRO = "Астрономия";
-        public static final String COLUMN_NAME_ENGLISH = "Английский язык";
-        public static final String COLUMN_NAME_BIO = "Биология";
-        public static final String COLUMN_NAME_GEO = "География";
-        public static final String COLUMN_NAME_INF = "Информатика";
-        public static final String COLUMN_NAME_MHK = "Искусство(МХК)";
-        public static final String COLUMN_NAME_SPAN = "Испанский язык";
-        public static final String COLUMN_NAME_HIS = "История";
-        public static final String COLUMN_NAME_ITAL = "Итальянский язык";
-        public static final String COLUMN_NAME_CHIN = "Китайский язык";
-        public static final String COLUMN_NAME_LIT = "Литература";
-        public static final String COLUMN_NAME_MATH = "Математика";
-        public static final String COLUMN_NAME_DEU = "Немецкий язык";
-        public static final String COLUMN_NAME_OBCH = "Обществознание";
-        public static final String COLUMN_NAME_LOY = "Право";
-        public static final String COLUMN_NAME_RUS = "Русский язык";
-        public static final String COLUMN_NAME_PHY = "Физика";
-        public static final String COLUMN_NAME_CHEM = "Химия";
-        public static final String COLUMN_NAME_ECO = "Экология";
-        public static final String COLUMN_NAME_ECON = "Экономика";
+        public static final String TABLE_NAME = "Olymp";
+        public static final String COLUMN_NAME_ASTRO = "astro";
+        public static final String COLUMN_NAME_ENGLISH = "english";
+        public static final String COLUMN_NAME_BIO = "bio";
+        public static final String COLUMN_NAME_GEO = "geo";
+        public static final String COLUMN_NAME_INF = "inf";
+        public static final String COLUMN_NAME_MHK = "mhk";
+        public static final String COLUMN_NAME_SPAN = "span";
+        public static final String COLUMN_NAME_HIS = "his";
+        public static final String COLUMN_NAME_ITAL = "ital";
+        public static final String COLUMN_NAME_CHIN = "chin";
+        public static final String COLUMN_NAME_LIT = "lit";
+        public static final String COLUMN_NAME_MATH = "math";
+        public static final String COLUMN_NAME_DEU = "deu";
+        public static final String COLUMN_NAME_OBCH = "obch";
+        public static final String COLUMN_NAME_LOY = "loy";
+        public static final String COLUMN_NAME_RUS = "rus";
+        public static final String COLUMN_NAME_PHY = "phy";
+        public static final String COLUMN_NAME_CHEM = "chem";
+        public static final String COLUMN_NAME_ECO = "eco";
+        public static final String COLUMN_NAME_ECON = "econ";
     }
     public static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + FeedEntry.TABLE_NAME + " (" +

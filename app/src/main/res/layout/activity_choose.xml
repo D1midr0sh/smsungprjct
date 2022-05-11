@@ -170,6 +170,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="600dp"
         android:text="Подтвердить"
+        android:onClick="onClickBack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />

@@ -4,7 +4,6 @@
         android:id="@+id/nav_tochoose"
         android:icon="@drawable/check"
         android:title="@string/chose"
-        android:onClick="OnClick"
         />
 
 
