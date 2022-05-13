@@ -26,6 +26,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     protected OlympApp mMyApp;
+    public String[] columns = {"astro", "english", "bio", "geo", "inf", "mhk", "span", "his", "ital", "chin", "lit", "math", "deu", "obch", "loy", "rus", "phy", "chem", "eco", "econ"};
     Button astro;
     Button english;
     Button bio, geogr, inf, mhk, spanish, his, ital, chin, lit, math, deu, obch, loyal, rus, phys, chem;
@@ -37,8 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        notifyAtTime();
         mMyApp = (OlympApp) this.getApplicationContext();
+        notifyAtTime();
         Dbhelper dbhelper = new Dbhelper(getBaseContext());
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
@@ -101,6 +102,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         switch (item.getItemId()) {
                             case R.id.nav_tochoose:
                                 intent = new Intent(MainActivity.this, ChooseActivity.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.alarms:
+                                intent = new Intent(MainActivity.this, AlarmActivity.class);
                                 startActivity(intent);
                                 break;
 
@@ -236,8 +241,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PendingIntent pendingIntent = PendingIntent.getService(MainActivity.this, 0, myIntent, 0);
 
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 12);
-        calendar.set(Calendar.MINUTE, 47);
+        calendar.set(Calendar.HOUR_OF_DAY, 18);
+        calendar.set(Calendar.MINUTE, 40);
         calendar.set(Calendar.SECOND, 00);
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
