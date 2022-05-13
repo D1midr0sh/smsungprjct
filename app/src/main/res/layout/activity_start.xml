@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="351dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
+        android:text='Добро пожаловать в "Олимпиадникъ"!'
+        android:textAlignment="center"
+        android:textColor="@color/teal_200"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="236dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="132dp"
+        android:text="Быстрый гайд:"
+        android:textAlignment="center"
+        android:textColor="@color/teal_200"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="282dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="168dp"
+        android:text="@string/instr1"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="283dp"
+        android:layout_height="103dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="516dp"
+        android:text="@string/instr4"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="278dp"
+        android:layout_height="153dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="356dp"
+        android:text="@string/instr3"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="278dp"
+        android:layout_height="119dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="244dp"
+        android:text="@string/instr2"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="222dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="616dp"
+        android:text="@string/instr5"
+        android:textAlignment="center"
+        android:textColor="@color/blue_90"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button22"
+        android:layout_width="244dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="652dp"
+        android:onClick="onClick"
+        android:text="Продолжить"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+</androidx.constraintlayout.widget.ConstraintLayout>

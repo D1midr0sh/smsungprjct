@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Олимпиады</string>
+    <string name="app_name">Олимпиадникъ</string>
     <string name="astro">Астрономия</string>
     <string name="english">Английский язык</string>
     <string name="bio">Биология</string>
     <string name="geogr">География</string>
     <string name="inf">Информатика</string>
-    <string name="title">ВСОШ планировщик</string>
+    <string name="title">Предметы ВСОШ</string>
     <string name="mhk">Искусство(МХК)</string>
     <string name="spanish">Испанский язык</string>
     <string name="his">История</string>
@@ -24,7 +24,13 @@
     <string name="chose">Выбрать</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="tochoose">Выберите предметы:</string>
-
+    <string name="instr1">Выбрать предметы для участия можно по нажатию кнопки "Выбрать" в нижнем меню.</string>
+    <string name="instr2">Выбранные предметы будут написаны голубым текстом в общем списке. При нажатии на предмет можно просмотреть расписание, и попасть на
+    сайт предмета, и регистрацию в ЕСР.</string>
+    <string name="instr3">Вы получите уведомление за один день до олимпиады. По нажатию кнопки "Напоминания" в нижнем меню, вы сможете перейти в настройки, где
+    можно отключить напоминания в общем, а так же настроить время напоминания (по умолчанию в 19:00)</string>
+    <string name="instr4">Если вы выберете свой класс в меню "Класс", то Вам будут показываться только даты, относящиеся к Вашему классу. Работает от 7 класса включительно</string>
+    <string name="instr5">Желаем успеха!</string>
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
@@ -39,4 +45,5 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="notif">Напоминания</string>
 </resources>

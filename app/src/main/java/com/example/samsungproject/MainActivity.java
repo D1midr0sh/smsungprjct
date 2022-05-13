@@ -1,10 +1,16 @@
 package com.example.samsungproject;
 
+import static android.content.ContentValues.TAG;
+
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,8 +21,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import java.util.Calendar;
+import java.util.Date;
 
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    protected OlympApp mMyApp;
     Button astro;
     Button english;
     Button bio, geogr, inf, mhk, spanish, his, ital, chin, lit, math, deu, obch, loyal, rus, phys, chem;
@@ -28,10 +37,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        notifyAtTime();
+        mMyApp = (OlympApp) this.getApplicationContext();
         Dbhelper dbhelper = new Dbhelper(getBaseContext());
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
                 .getBoolean("isFirstRun", true);
+        Date currentTime = Calendar.getInstance().getTime();
+        int time = currentTime.getHours();
+        int min = currentTime.getMinutes();
+        Log.d(TAG, "Time: "+String.valueOf(time)+":"+String.valueOf(min));
 
         if (isFirstRun) {
             ContentValues values = new ContentValues();
@@ -59,6 +74,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             long newRowId = db.insert(DataBase.FeedEntry.TABLE_NAME, null, values);
             Toast.makeText(this, "First time here?", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(MainActivity.this, StartActivity.class);
+            startActivity(i);
 
 
         }
@@ -194,10 +211,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
+    protected void onResume() {
+        super.onResume();
+        mMyApp.setCurrentActivity(this);
+    }
+    protected void onPause() {
+        clearReferences();
+        super.onPause();
+    }
     protected void onDestroy() {
-
+        clearReferences();
         super.onDestroy();
+    }
+
+    private void clearReferences(){
+        Activity currActivity = mMyApp.getCurrentActivity();
+        if (this.equals(currActivity))
+            mMyApp.setCurrentActivity(null);
+    }
+
+    public void notifyAtTime() {
+        Intent myIntent = new Intent(MainActivity.this , Notification.class);
+        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(MainActivity.this, 0, myIntent, 0);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 12);
+        calendar.set(Calendar.MINUTE, 47);
+        calendar.set(Calendar.SECOND, 00);
+
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
     }
 
 

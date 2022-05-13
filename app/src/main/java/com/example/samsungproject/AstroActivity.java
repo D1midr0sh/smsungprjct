@@ -1,6 +1,7 @@
 package com.example.samsungproject;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AstroActivity extends AppCompatActivity implements View.OnClickListener {
+    protected OlympApp mMyApp;
     Button olbutton;
     Button srbutton;
     public String TAG = "MyApp";
@@ -21,6 +23,7 @@ public class AstroActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mMyApp = (OlympApp) this.getApplicationContext();
         setContentView(R.layout.activity_astro);
         TextView titlee = findViewById(R.id.textView2);
         TextView part = findViewById(R.id.part);
@@ -234,5 +237,24 @@ public class AstroActivity extends AppCompatActivity implements View.OnClickList
                 Toast.makeText(this, "ERROR 404: Page not found.", Toast.LENGTH_SHORT).show();
 
         }
+
+    }
+    protected void onResume() {
+        super.onResume();
+        mMyApp.setCurrentActivity(this);
+    }
+    protected void onPause() {
+        clearReferences();
+        super.onPause();
+    }
+    protected void onDestroy() {
+        clearReferences();
+        super.onDestroy();
+    }
+
+    private void clearReferences(){
+        Activity currActivity = mMyApp.getCurrentActivity();
+        if (this.equals(currActivity))
+            mMyApp.setCurrentActivity(null);
     }
 }

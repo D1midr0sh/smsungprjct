@@ -2,9 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_tochoose"
-        android:icon="@drawable/check"
+        android:icon="@drawable/ic_baseline_check_circle"
         android:title="@string/chose"
         />
+    <item
+        android:id="@+id/alarms"
+        android:icon="@drawable/ic_baseline_access_alarm_24"
+        android:title="@string/notif"/>
 
 
 </menu>

@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 import static com.example.samsungproject.DataBase.FeedEntry.TABLE_NAME;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,12 +16,14 @@ import android.widget.CheckBox;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ChooseActivity extends AppCompatActivity {
+    protected OlympApp mMyApp;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
+        mMyApp = (OlympApp) this.getApplicationContext();
 
     }
 
@@ -127,5 +130,23 @@ public class ChooseActivity extends AppCompatActivity {
     public void onClickBack(View view){
         Intent intent = new Intent(ChooseActivity.this, MainActivity.class);
         startActivity(intent);
+    }
+    protected void onResume() {
+        super.onResume();
+        mMyApp.setCurrentActivity(this);
+    }
+    protected void onPause() {
+        clearReferences();
+        super.onPause();
+    }
+    protected void onDestroy() {
+        clearReferences();
+        super.onDestroy();
+    }
+
+    private void clearReferences(){
+        Activity currActivity = mMyApp.getCurrentActivity();
+        if (this.equals(currActivity))
+            mMyApp.setCurrentActivity(null);
     }
 }
