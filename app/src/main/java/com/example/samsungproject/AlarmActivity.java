@@ -2,6 +2,7 @@ package com.example.samsungproject;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +23,8 @@ public class AlarmActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toast.makeText(this, "Activity started", Toast.LENGTH_SHORT).show();
+        notifyAtTime2(this);
         setContentView(R.layout.activity_alarm);
         editText = findViewById(R.id.editTextNumber);
         commit = findViewById(R.id.commit);
@@ -63,6 +66,20 @@ public class AlarmActivity extends AppCompatActivity {
         calendar.set(Calendar.MINUTE, 35);
         calendar.set(Calendar.SECOND, 00);
         Toast.makeText(this, "Notif send", Toast.LENGTH_SHORT).show();
+
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+    }
+
+    public void notifyAtTime2(Context c) {
+        Intent myIntent = new Intent(c, Notification.class);
+        Toast.makeText(this, "Notification has been send", Toast.LENGTH_SHORT).show();
+        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(c, 0, myIntent, 0);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 12);
+        calendar.set(Calendar.MINUTE, 24);
+        calendar.set(Calendar.SECOND, 10);
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
     }

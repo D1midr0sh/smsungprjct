@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -34,12 +35,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     BottomNavigationView bnv;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mMyApp = (OlympApp) this.getApplicationContext();
-        notifyAtTime();
         Dbhelper dbhelper = new Dbhelper(getBaseContext());
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
@@ -235,14 +234,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mMyApp.setCurrentActivity(null);
     }
 
-    public void notifyAtTime() {
-        Intent myIntent = new Intent(MainActivity.this , Notification.class);
+    public void notifyAtTime(Context c) {
+        Intent myIntent = new Intent(c, Notification.class);
         AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getService(MainActivity.this, 0, myIntent, 0);
+        PendingIntent pendingIntent = PendingIntent.getService(c, 0, myIntent, 0);
 
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 18);
-        calendar.set(Calendar.MINUTE, 40);
+        calendar.set(Calendar.HOUR_OF_DAY, 19);
+        calendar.set(Calendar.MINUTE, 54);
         calendar.set(Calendar.SECOND, 00);
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
