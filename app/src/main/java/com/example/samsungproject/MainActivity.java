@@ -6,7 +6,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -49,31 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d(TAG, "Time: "+String.valueOf(time)+":"+String.valueOf(min));
 
         if (isFirstRun) {
-            ContentValues values = new ContentValues();
-            String not = "NO";
-            values.put(DataBase.FeedEntry.COLUMN_NAME_ASTRO, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_ENGLISH, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_BIO, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_GEO, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_INF, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_MHK, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_SPAN, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_HIS, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_ITAL, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_CHIN, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_LIT, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_MATH, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_DEU, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_OBCH, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_LOY, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_RUS, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_PHY, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_CHEM, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_ECO, not);
-            values.put(DataBase.FeedEntry.COLUMN_NAME_ECON, not);
-
-            long newRowId = db.insert(DataBase.FeedEntry.TABLE_NAME, null, values);
-            Toast.makeText(this, "First time here?", Toast.LENGTH_SHORT).show();
+            dbhelper.firstFill(db);
             Intent i = new Intent(MainActivity.this, StartActivity.class);
             startActivity(i);
 
@@ -237,14 +212,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void notifyAtTime(Context c) {
         Intent myIntent = new Intent(c, Notification.class);
         AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getService(c, 0, myIntent, 0);
+        PendingIntent pendingIntent = PendingIntent.getService(c, 0, myIntent, PendingIntent.FLAG_IMMUTABLE);
 
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 19);
-        calendar.set(Calendar.MINUTE, 54);
+        calendar.set(Calendar.HOUR_OF_DAY, 16);
+        calendar.set(Calendar.MINUTE, 04);
         calendar.set(Calendar.SECOND, 00);
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+        Toast.makeText(this, "Notif should be sent", Toast.LENGTH_SHORT).show();
     }
 
 
