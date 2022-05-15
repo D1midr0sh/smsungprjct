@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AstroActivity extends AppCompatActivity implements View.OnClickListener {
+public class SubjectActivity extends AppCompatActivity implements View.OnClickListener {
     protected OlympApp mMyApp;
     Button olbutton;
     Button srbutton;

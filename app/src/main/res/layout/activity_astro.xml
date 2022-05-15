@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AstroActivity">
+    tools:context=".SubjectActivity">
 
     <TextView
         android:id="@+id/textView2"
@@ -58,8 +58,8 @@
         android:id="@+id/textView4"
         android:layout_width="392dp"
         android:layout_height="27dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="412dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="388dp"
         android:text="Муниципальныый этап: (data)"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,7 +70,7 @@
         android:layout_width="276dp"
         android:layout_height="29dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="336dp"
+        android:layout_marginTop="404dp"
         android:text="Региональный этап: (data)"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,11 +78,11 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="287dp"
-        android:layout_height="31dp"
+        android:layout_width="398dp"
+        android:layout_height="29dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="388dp"
-        android:text="Заключительный этап: (data)"
+        android:layout_marginTop="468dp"
+        android:text="Заключительный этап: 18.05.2022 (тест)"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -91,8 +91,8 @@
         android:id="@+id/part"
         android:layout_width="258dp"
         android:layout_height="81dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="444dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="552dp"
         android:text="Вы не участвуете в данном предмете."
         android:textAlignment="center"
         android:textSize="24sp"

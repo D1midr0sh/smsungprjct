@@ -21,19 +21,7 @@ public class Notification extends Service {
     @Override
     public void onCreate(){
 
-        Toast.makeText(this, "Notification", Toast.LENGTH_LONG).show();
-
-//        Intent intent = new Intent(this, MainActivity.class);
-//        PendingIntent pending = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
-//        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
-//                .setSmallIcon(R.drawable.ic_baseline_access_alarm_24)
-//                .setContentTitle("Напоминание!")
-//                .setContentText("У тебя скоро олимпиада! Не забудь к ней подготовиться. Удачи!")
-//                .setContentIntent(pending);
-//
-//        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-//        manager.notify(0, mBuilder.build());
-//        Log.d(TAG, "Notif should be sent");
+        Toast.makeText(this, "Скоро олимпиада!", Toast.LENGTH_LONG).show();
         NotificationManager mNotificationManager;
 
         NotificationCompat.Builder mBuilder =
@@ -45,14 +33,14 @@ public class Notification extends Service {
         mBuilder.setContentIntent(pendingIntent);
         mBuilder.setSmallIcon(R.mipmap.ic_launcher_round);
         mBuilder.setContentTitle("Напоминание");
-        mBuilder.setContentText("У тебя олимпиада скоро");
+        mBuilder.setContentText("У тебя скоро олимпиада, не забудь к ней подготовиться!");
         mBuilder.setPriority(android.app.Notification.PRIORITY_MAX);
 
 
         mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-// === Removed some obsoletes
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
         {
             String channelId = "Your_channel_id";

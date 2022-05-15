@@ -1,7 +1,5 @@
 package com.example.samsungproject;
 
-import static android.content.ContentValues.TAG;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -10,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     protected OlympApp mMyApp;
@@ -42,10 +38,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
                 .getBoolean("isFirstRun", true);
-        Date currentTime = Calendar.getInstance().getTime();
-        int time = currentTime.getHours();
-        int min = currentTime.getMinutes();
-        Log.d(TAG, "Time: "+String.valueOf(time)+":"+String.valueOf(min));
 
         if (isFirstRun) {
             dbhelper.firstFill(db);
@@ -58,12 +50,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
                 .putBoolean("isFirstRun", false).commit();
-
-
-
-
-
-
 
         setContentView(R.layout.activity_main);
         bnv = findViewById(R.id.navmenu);
@@ -184,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String title;
         Button j = findViewById(v.getId());
         title = j.getText().toString();
-        i = new Intent(MainActivity.this, AstroActivity.class);
+        i = new Intent(MainActivity.this, SubjectActivity.class);
         i.putExtra("title", title);
         startActivity(i);
 

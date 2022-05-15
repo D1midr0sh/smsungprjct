@@ -28,7 +28,7 @@
             android:name=".StartActivity"
             android:exported="false" />
         <activity
-            android:name=".AstroActivity"
+            android:name=".SubjectActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

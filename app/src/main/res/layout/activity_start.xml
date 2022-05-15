@@ -46,22 +46,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView13"
-        android:layout_width="283dp"
-        android:layout_height="103dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="516dp"
-        android:text="@string/instr4"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/textView12"
-        android:layout_width="278dp"
-        android:layout_height="153dp"
+        android:layout_width="273dp"
+        android:layout_height="229dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="356dp"
+        android:layout_marginTop="384dp"
         android:text="@string/instr3"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,8 +58,8 @@
 
     <TextView
         android:id="@+id/textView11"
-        android:layout_width="278dp"
-        android:layout_height="119dp"
+        android:layout_width="280dp"
+        android:layout_height="140dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="244dp"
         android:text="@string/instr2"
