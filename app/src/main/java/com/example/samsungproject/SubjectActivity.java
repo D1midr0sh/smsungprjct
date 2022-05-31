@@ -43,7 +43,6 @@ public class SubjectActivity extends AppCompatActivity implements View.OnClickLi
         TextView part = findViewById(R.id.part);
         String message = getIntent().getStringExtra("title");
         titlee.setText(message);
-        getSchdata();
         String title;
         switch(message) {
             case "Астрономия":
@@ -118,8 +117,11 @@ public class SubjectActivity extends AppCompatActivity implements View.OnClickLi
         SQLiteDatabase db = dbhelper.getReadableDatabase();
         String iff = dbhelper.getData(title);
         Log.d("Check", "Here is your db: "+ iff);
-        mData = FirebaseDatabase.getInstance().getReference("astro");
-
+        mData = FirebaseDatabase.getInstance().getReference(title);
+        getSchdata();
+        getMundata();
+        getRegdata();
+        getEnddata();
         if(iff.equals("YES"))
             part.setText("Вы участвуете в данном предмете.");
         olbutton = findViewById(R.id.olbutton);
@@ -278,13 +280,70 @@ public class SubjectActivity extends AppCompatActivity implements View.OnClickLi
 
         // calling add value event listener method
         // for getting the values from database.
-        mData.addValueEventListener(new ValueEventListener() {
+        mData.child("sch").addValueEventListener(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String value = snapshot.getValue(String.class);
 
                 sch.setText("Школьный этап: "+value);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(SubjectActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void getMundata() {
+
+        // calling add value event listener method
+        // for getting the values from database.
+        mData.child("mun").addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+
+                mun.setText("Муниципальный этап: "+value);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(SubjectActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void getRegdata() {
+
+        // calling add value event listener method
+        // for getting the values from database.
+        mData.child("reg").addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+
+                reg.setText("Региональный этап: "+value);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(SubjectActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void getEnddata() {
+
+        // calling add value event listener method
+        // for getting the values from database.
+        mData.child("end").addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+
+                end.setText("Заключительный этап: "+value);
             }
 
             @Override
