@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "724676176472",
+    "firebase_url": "https://olympapp-dad22-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "olympapp-dad22",
+    "storage_bucket": "olympapp-dad22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724676176472:android:d951e1b9beb8f5baeb782d",
+        "android_client_info": {
+          "package_name": "com.example.samsungproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724676176472-dl5tr2mk3k0knf45ti4fki4s8r5pl63s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg_D8oGIt3WGyxB23FXAVIIH4xAAJ5FZ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724676176472-dl5tr2mk3k0knf45ti4fki4s8r5pl63s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

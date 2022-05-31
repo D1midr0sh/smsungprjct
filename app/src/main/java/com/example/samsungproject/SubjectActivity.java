@@ -26,7 +26,7 @@ public class SubjectActivity extends AppCompatActivity implements View.OnClickLi
     Button olbutton;
     Button srbutton;
     DatabaseReference mData;
-    TextView titlee;
+    TextView titlee, sch, mun, reg, end;
 
     public String TAG = "MyApp";
     @SuppressLint("Range")
@@ -35,12 +35,15 @@ public class SubjectActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         mMyApp = (OlympApp) this.getApplicationContext();
         setContentView(R.layout.activity_astro);
-        mData = FirebaseDatabase.getInstance().getReference();
+        sch = findViewById(R.id.textView3);
+        mun = findViewById(R.id.textView4);
+        reg = findViewById(R.id.textView5);
+        end = findViewById(R.id.textView6);
         titlee = findViewById(R.id.textView2);
         TextView part = findViewById(R.id.part);
         String message = getIntent().getStringExtra("title");
         titlee.setText(message);
-        getdata();
+        getSchdata();
         String title;
         switch(message) {
             case "Астрономия":
@@ -115,6 +118,7 @@ public class SubjectActivity extends AppCompatActivity implements View.OnClickLi
         SQLiteDatabase db = dbhelper.getReadableDatabase();
         String iff = dbhelper.getData(title);
         Log.d("Check", "Here is your db: "+ iff);
+        mData = FirebaseDatabase.getInstance().getReference("astro");
 
         if(iff.equals("YES"))
             part.setText("Вы участвуете в данном предмете.");
@@ -270,30 +274,21 @@ public class SubjectActivity extends AppCompatActivity implements View.OnClickLi
             mMyApp.setCurrentActivity(null);
     }
 
-    private void getdata() {
+    private void getSchdata() {
 
         // calling add value event listener method
         // for getting the values from database.
         mData.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                // this method is call to get the realtime
-                // updates in the data.
-                // this method is called when the data is
-                // changed in our Firebase console.
-                // below line is for getting the data from
-                // snapshot of our database.
                 String value = snapshot.getValue(String.class);
 
-                // after getting the value we are setting
-                // our value to our text view in below line.
-                titlee.setText(value);
+                sch.setText("Школьный этап: "+value);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                // calling on cancelled method when we receive
-                // any error or we are not able to get the data.
                 Toast.makeText(SubjectActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
             }
         });
